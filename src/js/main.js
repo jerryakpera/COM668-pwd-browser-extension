@@ -1,6 +1,8 @@
 // Get the loading overlay
 const overlay = document.getElementsByClassName('loading-overlay')[0];
 
+document.body.style.width = '750px';
+
 // Get the form
 const form = document.getElementById('main-form');
 

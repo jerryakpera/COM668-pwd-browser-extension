@@ -1,15 +1,8 @@
 // Get the loading overlay
 const overlay = document.getElementsByClassName('loading-overlay')[0];
 
+// Sets the width of the extension
 document.body.style.width = '750px';
-
-// Get the form
-const form = document.getElementById('main-form');
-
-// Get all input boxes
-const info1Input = document.getElementById('info-1');
-const info2Input = document.getElementById('info-2');
-const info3Input = document.getElementById('info-3');
 
 // Get the password boxes
 const passwords = document.getElementsByClassName('password-content');
@@ -40,15 +33,6 @@ passwordContentBoxes.forEach((passwordBox) => {
       removeStyling();
     }, 2800);
   });
-});
-
-// Listen for submit event on form and run generate password function
-form.addEventListener('submit', (e) => {
-  // Dont refresh the page when form is submitted
-  e.preventDefault();
-
-  // Call get passwords function
-  getPasswords();
 });
 
 // Function to get passwords from back end
@@ -100,12 +84,8 @@ function removeStyling() {
 
 // Function to get the password parameters for generating password
 function getPasswordParameters() {
-  // Get the information in the first input
-  const first_input = info1Input.value;
-  // Get the information in the second input
-  // const second_input = info2Input.value;
-  // Get the information in the third input
-  // const third_input = info3Input.value;
+  // Call function from ./get-answers.js
+  const answers = getAnswer();
 
   // Get if uppercase is switched on
   const uppercase = document.getElementById('uppercase').checked;
@@ -125,9 +105,7 @@ function getPasswordParameters() {
     symbols,
     uppercase,
     lowercase,
-    first_input,
-    third_input: '',
-    second_input: '',
+    ...answers,
   };
 }
 

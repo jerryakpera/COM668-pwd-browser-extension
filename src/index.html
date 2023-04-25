@@ -42,149 +42,128 @@
         </header>
 
         <main>
-          <!-- Call to action -->
-          <h3 class="fw-bold text-primary">
-            Generate personalized and random passwords!
-          </h3>
-          <!-- <small>
-            PGCrypt uses information you provide to generate strong passwords.
-            To create more memorable passwords answer the following questions.
-          </small> -->
-          <hr />
+          <!-- <hr class="mt-1" /> -->
 
           <!-- Form to get users information & Password settings-->
           <form id="main-form">
-            <div id="question-select-container">
-              <!-- Passwords are generated on enter press -->
-              <label for="question-select" class="mb-1"
-                >Select a question to answer</label
+            <!-- Call to action -->
+            <div class="title-row">
+              <h5 class="text-primary mb-0">
+                Generate personalized and random passwords!
+              </h5>
+              <!-- Generate password button -->
+              <button
+                type="submit"
+                class="btn btn-primary btn-md submit-button"
+                id="submit"
               >
-              <select
-                class="form-select"
-                id="question-select"
-                aria-label="Default select example"
-              >
-                <option selected>Where did your parents meet?</option>
-                <option>What is your favourite football team?</option>
-                <option>What is the name of your first pet?</option>
-              </select>
+                Generate Password
+              </button>
+            </div>
+            <!-- Select and input to answer personal question -->
+            <div class="row">
+              <div class="col-6">
+                <!-- Passwords are generated on enter press -->
+                <small> Select a question to answer </small>
 
-              <input
-                id="info-1"
-                type="tedt"
-                class="form-control mt-1"
-                placeholder="Oslo, Norway"
-              />
+                <select
+                  class="form-select"
+                  id="question-select"
+                  aria-label="Default select example"
+                >
+                  <option selected value="parents">
+                    Where did your parents meet?
+                  </option>
+                  <option value="football">
+                    What is your favourite football team?
+                  </option>
+                  <option value="pet">
+                    What is the name of your first pet?
+                  </option>
+                </select>
+              </div>
+              <div class="col-6" id="input-box">
+                <input
+                  id="info-1"
+                  type="tedt"
+                  autofocus
+                  class="form-control mt-1"
+                  placeholder="Oslo, Norway"
+                />
+              </div>
             </div>
 
-            <hr class="my-4" />
+            <!-- Modify password parameters options -->
+            <div class="row mt-3">
+              <small> Modify your password options </small>
+              <!-- Toggle uppercase -->
+              <div class="col-6">
+                <div class="option-box border rounded">
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      role="switch"
+                      id="uppercase"
+                      checked
+                    />
+                    <label class="form-check-label" for="uppercase">
+                      Uppercase (A-Z)
+                    </label>
+                  </div>
+                </div>
+              </div>
 
-            <!-- Accordion to modify password generation options -->
-            <div class="accordion" id="settings-accordion">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                  <!-- Button to show/hide accordion -->
-                  <button
-                    class="accordion-button"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseOne"
-                    aria-expanded="true"
-                    aria-controls="collapseOne"
-                  >
-                    Modify password options
-                  </button>
-                </h2>
+              <!-- Toggle lowercase -->
+              <div class="col-6">
+                <div class="option-box border rounded">
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      role="switch"
+                      id="lowercase"
+                      checked
+                    />
+                    <label class="form-check-label w-auto" for="lowercase">
+                      Lowercase (a-z)
+                    </label>
+                  </div>
+                </div>
+              </div>
 
-                <div
-                  id="collapseOne"
-                  aria-labelledby="headingOne"
-                  data-bs-parent="#settings-accordion"
-                  class="accordion-collapse collapse hide"
-                >
-                  <div class="accordion-body">
-                    <div class="row">
-                      <!-- Toggle uppercase -->
-                      <div class="col-xs-12 col-sm-6 col-md-3 mt-2">
-                        <div class="option-box border rounded px-2 py-4">
-                          <div class="form-check form-switch">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              role="switch"
-                              id="uppercase"
-                              checked
-                            />
-                            <label class="form-check-label" for="uppercase">
-                              Uppercase (A-Z)
-                            </label>
-                          </div>
-                        </div>
-                      </div>
+              <!-- Toggle numbers -->
+              <div class="col-6 mt-2">
+                <div class="option-box border rounded">
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      role="switch"
+                      id="numbers"
+                      checked
+                    />
+                    <label class="form-check-label w-auto" for="numbers">
+                      Numbers (0-9)
+                    </label>
+                  </div>
+                </div>
+              </div>
 
-                      <!-- Toggle lowercase -->
-                      <div class="col-xs-12 col-sm-6 col-md-3 mt-2">
-                        <div class="option-box border rounded px-2 py-4">
-                          <div class="form-check form-switch">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              role="switch"
-                              id="lowercase"
-                              checked
-                            />
-                            <label
-                              class="form-check-label w-auto"
-                              for="lowercase"
-                            >
-                              Lowercase (a-z)
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- Toggle numbers -->
-                      <div class="col-xs-12 col-sm-6 col-md-3 mt-2">
-                        <div class="option-box border rounded px-2 py-4">
-                          <div class="form-check form-switch">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              role="switch"
-                              id="numbers"
-                              checked
-                            />
-                            <label
-                              class="form-check-label w-auto"
-                              for="numbers"
-                            >
-                              Numbers (0-9)
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- Toggle symbols -->
-                      <div class="col-xs-12 col-sm-6 col-md-3 mt-2">
-                        <div class="option-box border rounded px-2 py-4">
-                          <div class="form-check form-switch">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              role="switch"
-                              id="symbols"
-                              checked
-                            />
-                            <label
-                              class="form-check-label w-auto"
-                              for="symbols"
-                            >
-                              Symbols
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+              <!-- Toggle symbols -->
+              <div class="col-6 mt-2">
+                <div class="option-box border rounded">
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      role="switch"
+                      id="symbols"
+                      checked
+                    />
+                    <label class="form-check-label w-auto" for="symbols">
+                      Symbols
+                    </label>
                   </div>
                 </div>
               </div>
@@ -192,8 +171,9 @@
 
             <!-- Container that holds the password and the regenerate and copy button -->
             <div class="password-box">
-              <div class="row">
-                <div class="col-sm-4 col-md-4">
+              <small> Click on any password to copy it </small>
+              <div class="column">
+                <div class="col-12">
                   <!-- Password 1 -->
                   <div class="password-container">
                     <div class="password-content password-content--one">
@@ -207,7 +187,7 @@
                   </div>
                 </div>
 
-                <div class="col-sm-4 col-md-4">
+                <div class="col-12">
                   <!-- Password 2 -->
                   <div class="password-container">
                     <div class="password-content password-content--two">
@@ -222,7 +202,7 @@
                   </div>
                 </div>
 
-                <div class="col-sm-4 col-md-4">
+                <div class="col-12">
                   <!-- Password 3 -->
                   <div class="password-container">
                     <div class="password-content password-content--three">
@@ -237,18 +217,7 @@
                   </div>
                 </div>
               </div>
-
-              <small style="color: #ccc; font-size: 0.7em">Click to copy</small>
             </div>
-
-            <!-- Generate password button -->
-            <button
-              type="submit"
-              class="btn btn-primary btn-lg submit-button"
-              id="submit"
-            >
-              Generate Password
-            </button>
           </form>
         </main>
       </div>
@@ -281,6 +250,9 @@
     <!-- Importing main JS file -->
     <script src="./js/index.js"></script>
     <script src="./js/use-request.js"></script>
+    <script src="./js/get-answers.js"></script>
+    <script src="./js/submit-form.js"></script>
+    <script src="./js/select-question.js"></script>
     <script src="./js/main.js"></script>
   </body>
 </html>

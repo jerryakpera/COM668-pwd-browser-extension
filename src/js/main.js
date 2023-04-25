@@ -52,7 +52,7 @@ form.addEventListener('submit', (e) => {
 });
 
 // Function to get passwords from back end
-function getPasswords() {
+async function getPasswords() {
   // Show loading screen
   toggleLoading();
 
@@ -63,17 +63,13 @@ function getPasswords() {
   const passwordParameters = getPasswordParameters();
 
   // Call make request function and pass the parameters for creating the password
-  makePasswordRequest(passwordParameters)
-    .then((response) => {
-      // Display the passwords in the password content boxes
-      displayPasswords(response.data);
-    })
-    .catch((e) => {
-      // If there is an error then show the error in snackbar notification
-      displayNotification(e.message, 'negative');
-    });
+  try {
+    const { data } = await makePasswordRequest(passwordParameters);
+    displayPasswords(data);
+  } catch (e) {
+    displayNotification(e.message, 'negative');
+  }
 
-  // Hide loading screen
   toggleLoading();
 }
 
@@ -107,9 +103,9 @@ function getPasswordParameters() {
   // Get the information in the first input
   const first_input = info1Input.value;
   // Get the information in the second input
-  const second_input = info2Input.value;
+  // const second_input = info2Input.value;
   // Get the information in the third input
-  const third_input = info3Input.value;
+  // const third_input = info3Input.value;
 
   // Get if uppercase is switched on
   const uppercase = document.getElementById('uppercase').checked;
@@ -130,8 +126,8 @@ function getPasswordParameters() {
     uppercase,
     lowercase,
     first_input,
-    third_input,
-    second_input,
+    third_input: '',
+    second_input: '',
   };
 }
 
@@ -194,7 +190,34 @@ function displayPasswords(passwords) {
 }
 
 // Function to make the request to the back end
-function makePasswordRequest(passwordParameters) {
+async function makePasswordRequest(passwordParameters) {
+  try {
+    // const URL = 'https://rural-bedroom-production.up.railway.app/password';
+    const URL = 'http://localhost:5000/password';
+
+    return await useRequest(URL, 'POST', passwordParameters);
+
+    // .then((response) => {
+    //   return response;
+    // })
+    // .catch(() => {
+    //   displayNotification('Check your internet connection', 'dark');
+    // });
+  } catch (e) {
+    throw e;
+  }
+  // const URL = 'https://rural-bedroom-production.up.railway.app/password';
+  // const URL = 'http://localhost:5000/password';
+
+  // useRequest(URL, 'POST', passwordParameters)
+  //   .then((response) => {
+  //     return response;
+  //   })
+  //   .catch(() => {
+  //     displayNotification('Check your internet connection', 'dark');
+  //   });
+
+  return;
   // Return a new promise
   return new Promise((resolve, reject) => {
     // Change the password parameters object to a string
@@ -243,4 +266,4 @@ function toggleLoading() {
 
 // Get the passwords on initial page load.
 // This function is called once
-// getPasswords();
+getPasswords();

@@ -243,4 +243,4 @@ function toggleLoading() {
 
 // Get the passwords on initial page load.
 // This function is called once
-getPasswords();
+// getPasswords();

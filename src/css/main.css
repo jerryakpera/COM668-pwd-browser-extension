@@ -23,9 +23,10 @@ form {
   border-radius: 10px;
 }
 .password-box .password-container .password-content {
-  padding: 5px;
+  padding: 10px 20px;
   border: 1px solid #333;
-  font-size: 1.2em;
+  border-radius: 10px;
+  font-size: 1em;
   cursor: pointer;
   color: white;
   transition: all 0.25s ease-in-out;

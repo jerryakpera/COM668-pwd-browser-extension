@@ -1,3 +1,8 @@
+html {
+  height: -moz-fit-content !important;
+  height: fit-content !important;
+}
+
 main {
   margin-top: 30px;
 }
@@ -6,17 +11,30 @@ form {
   margin-top: 15px;
 }
 
-#settings-accordion {
-  margin-top: 15px;
-  margin-bottom: 15px;
+#input-box {
+  display: flex;
+  align-items: end;
 }
 
-.submit-button {
-  width: 100%;
+.option-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+.option-box label {
+  font-size: 0.9em;
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .password-box {
-  margin: 25px 0;
+  margin: 15px 0;
+  margin-bottom: 0;
 }
 .password-box .password-container {
   padding: 5px;

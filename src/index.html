@@ -30,9 +30,9 @@
     <title>PGCrypt | Password Generator</title>
   </head>
 
-  <body class="d-flex h-100 text-bg-dark">
+  <body class="d-flex h-100 text-bg-dark justify-center">
     <!-- Container div to limit the width on big devices -->
-    <div class="container">
+    <div class="container-fluid">
       <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <!-- Heading code with title of site -->
         <header class="mb-auto">
@@ -43,76 +43,41 @@
 
         <main>
           <!-- Call to action -->
-          <h1 class="fw-bold text-primary">
+          <h3 class="fw-bold text-primary">
             Generate personalized and random passwords!
-          </h1>
-          <p class="lead">
+          </h3>
+          <small>
             PGCrypt uses information you provide to generate strong passwords.
             To create more memorable passwords answer the following questions.
-          </p>
+          </small>
           <hr />
 
           <!-- Form to get users information & Password settings-->
           <form id="main-form">
-            <!-- Passwords are generated on enter press -->
-            <div class="row" style="margin-bottom: 0; padding: 0">
-              <!-- Where did your parents meet? -->
-              <div class="col-xs-12 col-sm-12 col-md-4">
-                <div class="my-3">
-                  <label for="info-1" class="form-label">
-                    Where did your parents meet?
-                    <br />
-                    <small style="color: #ccc; font-size: 0.7em; margin-top: 0">
-                      2 words
-                    </small>
-                  </label>
-                  <input
-                    id="info-1"
-                    type="tedt"
-                    class="form-control"
-                    placeholder="Oslo, Norway"
-                  />
-                </div>
-              </div>
+            <div id="question-select-container">
+              <!-- Passwords are generated on enter press -->
+              <label for="question-select" class="mb-1"
+                >Select a question to answer</label
+              >
+              <select
+                class="form-select"
+                id="question-select"
+                aria-label="Default select example"
+              >
+                <option selected>Where did your parents meet?</option>
+                <option>What is your favourite football team?</option>
+                <option>What is the name of your first pet?</option>
+              </select>
 
-              <!-- What is your favorite football team? -->
-              <div class="col-xs-12 col-sm-12 col-md-4">
-                <div class="my-3">
-                  <label for="info-2" class="form-label">
-                    What is your favourite football team?
-                    <br />
-                    <small style="color: #ccc; font-size: 0.7em; margin-top: 0">
-                      2 words
-                    </small>
-                  </label>
-                  <input
-                    id="info-2"
-                    type="tedt"
-                    class="form-control"
-                    placeholder="Man utd"
-                  />
-                </div>
-              </div>
-
-              <!-- What is the name of your first pet? -->
-              <div class="col-xs-12 col-sm-12 col-md-4">
-                <div class="my-3">
-                  <label for="info-3" class="form-label">
-                    What is the name of your first pet?
-                    <br />
-                    <small style="color: #ccc; font-size: 0.7em; margin-top: 0">
-                      2 words
-                    </small>
-                  </label>
-                  <input
-                    id="info-3"
-                    type="tedt"
-                    class="form-control"
-                    placeholder="Chief"
-                  />
-                </div>
-              </div>
+              <input
+                id="info-1"
+                type="tedt"
+                class="form-control mt-1"
+                placeholder="Oslo, Norway"
+              />
             </div>
+
+            <hr class="my-4" />
 
             <!-- Accordion to modify password generation options -->
             <div class="accordion" id="settings-accordion">
@@ -228,7 +193,7 @@
             <!-- Container that holds the password and the regenerate and copy button -->
             <div class="password-box">
               <div class="row">
-                <div class="col-sm-12 col-md-4">
+                <div class="col-sm-4 col-md-4">
                   <!-- Password 1 -->
                   <div class="password-container">
                     <div class="password-content password-content--one">
@@ -242,7 +207,7 @@
                   </div>
                 </div>
 
-                <div class="col-sm-12 col-md-4">
+                <div class="col-sm-4 col-md-4">
                   <!-- Password 2 -->
                   <div class="password-container">
                     <div class="password-content password-content--two">
@@ -257,7 +222,7 @@
                   </div>
                 </div>
 
-                <div class="col-sm-12 col-md-4">
+                <div class="col-sm-4 col-md-4">
                   <!-- Password 3 -->
                   <div class="password-container">
                     <div class="password-content password-content--three">
@@ -314,6 +279,7 @@
     <script src="./js/zxcvbn.js"></script>
 
     <!-- Importing main JS file -->
+    <script src="./js/index.js"></script>
     <script src="./js/main.js"></script>
   </body>
 </html>

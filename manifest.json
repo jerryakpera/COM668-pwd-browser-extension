@@ -5,5 +5,11 @@
   "action": {
     "default_title": "PGCrypt Password Generator",
     "default_popup": "./src/index.html"
+  },
+  "icons": {
+    "16": "./src/images/icon.png",
+    "32": "./src/images/icon.png",
+    "48": "./src/images/icon.png",
+    "128": "./src/images/icon.png"
   }
 }
